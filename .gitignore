@@ -10,3 +10,5 @@
 *.so
 Thumbs.db
 .Trashes
+*.pickle
+*.pyc
