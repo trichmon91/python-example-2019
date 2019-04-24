@@ -2,6 +2,7 @@ import numpy as np, os, sys
 import data_util
 from model.naive_bayes import NaiveBayes
 from model.logistic_regression import LogReg
+from model.mog import mog
 import pickle
 
 def train_save_plot_model(model,save_model_location):
@@ -42,10 +43,14 @@ if __name__ == '__main__':
     all_data = np.array(subject_data_list)
     all_labels = np.array(subject_label_list)
     all_sepsis_time_labels = np.array(sepsis_time_label_list)
+    # all_labels[all_sepsis_time_labels < 12] = 0
+
     if model_type == 'NB':
         model = NaiveBayes(all_data, all_labels)
     elif model_type == 'logreg':
         model = LogReg(all_data, all_labels)
+    elif model_type == 'mog':
+        model = mog(all_data, all_labels)
     else:
         raise Exception('model name not recognized')
     train_save_plot_model(model,save_model_location)

@@ -12,3 +12,5 @@ Thumbs.db
 .Trashes
 *.pickle
 *.pyc
+*.psv
+*.idea
