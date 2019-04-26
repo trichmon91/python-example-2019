@@ -4,8 +4,8 @@ from sklearn.linear_model import LogisticRegression
 class LogReg(BaseModel):
     
     #we can take more args for sklearn logreg params. For now, hardcode.
-    def __init__(self, data, labels):
-        super().__init__(data, labels)
+    def __init__(self, data, labels, priors):
+        super().__init__(data, labels, priors)
         self.model = LogisticRegression(C=1e5, solver='lbfgs')
         self.is_scipy_model = True
     

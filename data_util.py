@@ -7,7 +7,7 @@ def load_challenge_data_with_label(file):
         column_names = header.split('|')
         data = np.loadtxt(f, delimiter='|')
 
-    return data[:,:-1],data[:,-1]
+    return data[:,:-1],data[:,-1], column_names
     
 def remove_nans(data):
     for col_idx in range(np.shape(data)[1]):
@@ -25,6 +25,7 @@ def remove_nans(data):
                 else:
                     using_idx = np.max(good_idcs[good_idcs<idx])
                 data[idx,col_idx] = data[using_idx, col_idx]
+
     return data
     
 def add_time_relative_data(data):
